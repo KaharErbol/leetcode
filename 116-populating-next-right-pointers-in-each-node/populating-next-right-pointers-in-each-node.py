@@ -21,8 +21,9 @@ class Solution:
             while size > 0:
                 node = q.pop(0)
                 size -= 1
-                if size >= 1:
+                if size > 0:
                     node.next = q[0]
+                
                 if node.left:
                     q.append(node.left)
                 if node.right:
