@@ -6,8 +6,8 @@ class Solution:
             if heights[i] > tallest:
                 tallest = heights[i] 
                 res.append(i)
-        # res.sort()
-        return res[::-1]
+        res.sort()
+        return res
 
         # stack = []
         
