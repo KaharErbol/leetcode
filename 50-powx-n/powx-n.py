@@ -1,19 +1,13 @@
 class Solution:
-    def binaryExpo(self, x: float, n: int) -> float:
-        if n == 0:
-            return 1
-        if n < 0:
-            return 1 / self.binaryExpo(x, -n)
-
-        if n % 2 == 0:
-            return self.binaryExpo(x * x, n // 2)
-        
-        if n % 2 != 0:
-            return x * self.binaryExpo(x * x, (n-1) // 2)
-
     def myPow(self, x: float, n: int) -> float:
-        return self.binaryExpo(x, n)
-        
-       
-                
+        def helper(base=x, exp=abs(n)):
+            if exp == 0:
+                return 1
+            elif exp % 2 == 1:
+                return base * helper(base*base, (exp-1) // 2)
+            else:
+                return helper(base*base, exp // 2)
 
+        res = helper()
+    
+        return float(res) if n > 0 else 1 / res
