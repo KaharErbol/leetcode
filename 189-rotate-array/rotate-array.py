@@ -3,19 +3,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # Kahar
-        def helper(left: int, right: int) -> None:
+        def helper(left, right):
             while left < right:
-                nums[left], nums[right] = nums[right], nums[left]
+                nums[left], nums[right] = nums[right], nums[left] 
                 left += 1
                 right -= 1
+        
+        n = len(nums)
+        
+        k = k % n
 
-        k = k % len(nums)
-        # Revers the whole array
-        helper(0, len(nums) - 1)
-
-        # Revers the left side
+        helper(0, n - 1)
         helper(0, k - 1)
-
-        # Reverse the right side
-        helper(k, len(nums) - 1)
+        helper(k, n-1)
