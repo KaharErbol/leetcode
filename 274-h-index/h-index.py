@@ -1,10 +1,13 @@
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         n = len(citations)
-        citations.sort()
+        temp = [0 for _ in range(n + 1)]
 
-        for i, v in enumerate(citations):
-            if n - i <= v:
-                return n - i
-        
-        return 0
+        for c in citations:
+            temp[min(c, n)] += 1
+
+        total = 0
+        for i in range(n, -1, -1):
+            total += temp[i]
+            if total >= i:
+                return i
