@@ -6,11 +6,24 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        checked = set()
-        p = head
-        while p:
-          if p in checked:
+        # Hash 
+        # checked = set()
+        # p = head
+        # while p:
+        #   if p in checked:
+        #     return True
+        #   checked.add(p)
+        #   p = p.next
+        # return False
+
+        #  Two Pointer
+        fast = head
+        slow = head
+
+        while fast and fast.next:
+          fast = fast.next.next
+          slow = slow.next
+          if fast == slow:
             return True
-          checked.add(p)
-          p = p.next
+        
         return False
