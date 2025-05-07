@@ -20,11 +20,9 @@ class Solution:
 
         if list1:
           tail.next = list1
-          tail = tail.next
         
         if list2:
           tail.next = list2
-          tail = tail.next
 
         return dummy.next
             
